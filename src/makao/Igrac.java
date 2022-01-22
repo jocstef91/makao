@@ -37,5 +37,41 @@ public class Igrac {
 		karte.add(karta);
 	}
 	
+//	metodu da li postoji karta, koja vraca true/false ako karta postoji u nizu. Metoda prime broj i znak karte.
+	
+	public boolean daLiPostojiUNizu(String broj, String znak) {
+		for (int i = 0; i < karte.size(); i++) {
+			if(this.karte.get(i).getBroj().equals("broj") && this.karte.get(i).getZnak().equals(znak)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+//	metodu odigrajKartu - metoda kao parametar prima broj i znak karte koju treba da odigra. 
+//	Metoda iz niza karata pronalazi kartu izbacuje je iz niza i vraca kao povratnu vrednost metode. 
+//	Primer ako igrac ima karte [ J <3 ] [ 10 /\ ] [ Q <> ] [ A *** ]
+//	i pozove se metoda milan.odigraj(12, “srce”) metoda vraca objekat Karta koja ima 12 i srce. 
+//	Nakon izvrsenja metode stanje kod igraca je [ 10 /\ ] [ Q <> ] [ A *** ]
+	
+	public Karta odigrajKartu(String broj, String znak) {
+		Karta karta = new Karta("", "");
+		for (int i = 0; i < karte.size(); i++) {
+			if(this.karte.get(i).getBroj().equals("broj") && this.karte.get(i).getZnak().equals(znak)) {
+				karta= karte.get(i);
+				karte.remove(i);
+				
+			}
+			
+		}
+		return karta;
+	}
+	
+	public void print() {
+		System.out.println("Igrac:" + this.igrac);
+		for (int i = 0; i < karte.size(); i++) {
+			System.out.print("[ " + this.karte.get(i).getBroj()+" " + this.karte.get(i).getZnak() + " ]");
+		}
+	}
 
 }
