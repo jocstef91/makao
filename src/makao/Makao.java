@@ -92,6 +92,37 @@ public class Makao {
 		}
 		return igrac;
 	}
+	
+//	metodu izvuciKartu. Simuliramo situaciju kada igrac nema sta da odigra, pa mora da izvuce novu kartu. 
+//	Metoda iz spila izvlaci kartu i dodaje je igracu koji je na redu da igra.
+	
+	public void izvuciKartu(Igrac igrac) {
+    	
+		for (int i = 0; i < karte.size(); i++) {
+			int index = randomGenerator.nextInt(karte.size());
+			Karta random = karte.get(index);
+			this.igraci.get(i).dodajKartu(random);
+		}
+		
+	}
+	
+//	metoda odigraj kartu:
+//		od parametara prima broj i znak karte. Npr: makao.odigraj(11, “srce”)
+//		potrebna je prover da li igrac, koji je na redu da igra, ima tu kartu kod sebe. Ako je nema ispisati gresku!
+//		potrebna je provera da li je moguce odgirati tu kartu. Da li je moguce postaviti tu kartu preko one koja je zadnja odigrana. 
+//		Ako nije moguce ispisati gresku.
+//		[Ako je moguce odigrati tu kartu i igrac koji je na redu ima tu kartu] onda tu kartu izvucete od igraca 
+//		(imate metodu odigraj koja i izbaci to iz niza karata koji ima igrac) i postavite je u niz odigranih karata.
+//		Zatim potrebno je izvrsiti igru po pravilima. Ako je odigrana karta:
+//		7 - onda sledecem igracu dodate 2 karte i taj igrac je sledeci na redu.
+//		8 - preskacete sledeceg igraca 
+//		A - mora da poklopi kec. Tada ne prelazimo na sledec igraca, nego fokus ostaje na istog.
+//		2 detelina - prethodnom igracu dodelite 4 karte iz spila i prelazite na sledeceg..
+
+
+	public void odigrajKartu(String broj, String znak) {
+		
+	}
 }
 
 	
