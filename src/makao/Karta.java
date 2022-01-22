@@ -26,17 +26,17 @@ public class Karta {
 //		Primer poziva karta.daLiJeMogucePoklopiti(12, “srce”); // vraca true
 //		Primer poziva karta.daLiJeMogucePoklopiti(14, “detelina”); // vraca false
 	
-	private int broj;
+	private String broj;
 	private String znak;
 	
 	
-	public Karta(int broj, String znak) {
+	public Karta(String broj, String znak) {
 		this.broj = broj;
 		this.znak = znak;
 	}
 
 
-	public int getBroj() {
+	public String getBroj() {
 		return broj;
 	}
 
@@ -49,8 +49,8 @@ public class Karta {
 		System.out.println("[ " + this.broj + " " + this.znak + " ]");
 	}
 	
-	public boolean daLiJeMogucePoklopiti(int broj, String znak) {
-		if(this.broj==broj && this.znak.equals(znak)) {
+	public boolean daLiJeMogucePoklopiti(String broj, String znak) {
+		if(this.broj.equals(broj) && this.znak.equals(znak)) {
 			return true;
 		}else {
 			return false;
