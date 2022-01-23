@@ -121,7 +121,18 @@ public class Makao {
 
 
 	public void odigrajKartu(String broj, String znak) {
-		
+		for (int i = 0; i < igraci.size(); i++) {
+			if(this.naPotezu==i && this.igraci.get(i).daLiPostojiUNizu(broj, znak)) {
+				for (int j = 0; j < this.karte.size(); j++) {
+					if(this.karte.get(j).daLiJeMogucePoklopiti(broj, znak)){
+						this.karte.add(this.igraci.get(j).odigrajKartu(broj, znak));
+					
+					}else {
+						System.out.println("Nije moguce odigrati potez!!");
+					}
+				}
+			}
+		}
 	}
 }
 
